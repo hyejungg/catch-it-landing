@@ -175,7 +175,10 @@ body {
 .install-cta-wrap {
   margin-top: 18px;
   display: flex;
+  flex-direction: column;
+  gap: 10px;
   justify-content: center;
+  align-items: center;
 }
 
 .install-cta {
@@ -196,6 +199,21 @@ body {
 .install-cta:hover {
   background: var(--rose-700);
   transform: translateY(-1px);
+}
+
+.support-cta {
+  text-decoration: none;
+  color: var(--rose-700);
+  font-size: 14px;
+  font-weight: 600;
+  padding: 6px 10px;
+  border-radius: 8px;
+  background: var(--rose-50);
+  border: 1px solid var(--rose-200);
+}
+
+.support-cta:hover {
+  background: var(--rose-100);
 }
 
 @media (max-width: 740px) {

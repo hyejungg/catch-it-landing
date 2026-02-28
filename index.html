@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CatchIt | 웹 텍스트 수집기</title>
+    <meta
+      name="description"
+      content="드래그한 텍스트를 빠르게 저장하고, 필요하면 Notion DB로 동기화하는 CatchIt Chrome 확장 프로그램"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="landing-body">
+    <main class="landing-main">
+      <section class="mock-shell" aria-label="가상 웹 페이지 미리보기">
+        <div class="mock-browser-header">
+          <div class="dot dot-red"></div>
+          <div class="dot dot-yellow"></div>
+          <div class="dot dot-green"></div>
+          <div class="mock-address">https://example.com/blog/future-of-ai</div>
+        </div>
+
+        <div class="mock-page">
+          <h1>왜 우리는 항상 정보를 잃어버릴까?</h1>
+          <p class="meta">2023. 10. 25 | 작성자: 테크 매거진</p>
+
+          <div class="mock-content">
+            <p>
+              현대인들은 하루에도 수백 개의 아티클과 마주칩니다. 하지만
+              <span class="hl">정말 중요한 문장을 발견하더라도 그것을 내 지식으로 만드는 과정은 너무나도 험난합니다.</span>
+              북마크는 쌓여만 가고 다시 열어보지 않게 되죠.
+            </p>
+            <p>
+              단순한 메모 앱에 복사해서 붙여넣기를 하더라도 문제는 발생합니다. 가장 큰 문제는
+              <strong>현재 페이지 컨텍스트(링크, 제목, 문맥)가 빠져 재사용성이 떨어진다</strong>는 점입니다.
+            </p>
+            <p>
+              우리에겐 더 나은 도구가 필요합니다.
+              <span class="rose-text">드래그 한 번으로 텍스트, URL, 제목, 저장 시간을 함께 수집하는 도구.</span>
+              바로 CatchIt입니다.
+            </p>
+          </div>
+
+          <div class="mock-popover" role="note" aria-label="CatchIt 저장 팝오버 예시">
+            <span class="chip">CatchIt</span>
+            <input type="text" placeholder="태그 추가" disabled />
+            <button type="button" disabled>저장</button>
+          </div>
+        </div>
+      </section>
+
+      <div class="install-cta-wrap">
+        <a class="install-cta" href="./install.html">확장프로그램 설치하기</a>
+      </div>
+    </main>
+  </body>
+</html>

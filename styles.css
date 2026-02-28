@@ -1,0 +1,220 @@
+:root {
+  --rose-50: #fff1f2;
+  --rose-100: #ffe4e6;
+  --rose-200: #fecdd3;
+  --rose-300: #fda4af;
+  --rose-500: #f43f5e;
+  --rose-600: #e11d48;
+  --rose-700: #be123c;
+  --slate-50: #f8fafc;
+  --slate-100: #f1f5f9;
+  --slate-200: #e2e8f0;
+  --slate-400: #94a3b8;
+  --slate-500: #64748b;
+  --slate-700: #334155;
+  --slate-900: #0f172a;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Inter", "Apple SD Gothic Neo", sans-serif;
+  color: var(--slate-900);
+  background: radial-gradient(circle at top right, #ffe4e6 0%, #fff 40%, #f8fafc 100%);
+}
+
+.landing-body {
+  min-height: 100vh;
+}
+
+.landing-main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 28px 16px 40px;
+}
+
+.mock-shell {
+  border: 1px solid var(--slate-200);
+  border-radius: 18px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.08);
+}
+
+.mock-browser-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px;
+  border-bottom: 1px solid var(--slate-200);
+  background: var(--slate-100);
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.dot-red {
+  background: #fb7185;
+}
+
+.dot-yellow {
+  background: #fbbf24;
+}
+
+.dot-green {
+  background: #34d399;
+}
+
+.mock-address {
+  margin-left: 8px;
+  flex: 1;
+  border: 1px solid var(--slate-200);
+  background: #fff;
+  border-radius: 8px;
+  padding: 8px 10px;
+  font-size: 13px;
+  color: var(--slate-500);
+}
+
+.mock-page {
+  position: relative;
+  padding: 34px 28px 90px;
+}
+
+.mock-page h1 {
+  margin: 0;
+  font-size: clamp(24px, 4vw, 38px);
+  line-height: 1.2;
+}
+
+.meta {
+  margin: 10px 0 24px;
+  font-size: 13px;
+  color: var(--slate-500);
+}
+
+.mock-content {
+  display: grid;
+  gap: 16px;
+  max-width: 760px;
+}
+
+.mock-content p {
+  margin: 0;
+  font-size: clamp(15px, 2.2vw, 18px);
+  line-height: 1.75;
+  color: var(--slate-700);
+}
+
+.hl {
+  background: var(--rose-100);
+  color: var(--rose-700);
+}
+
+.rose-text {
+  color: var(--rose-600);
+  font-weight: 600;
+}
+
+.mock-popover {
+  position: absolute;
+  left: 50%;
+  bottom: 20px;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid var(--slate-200);
+  border-radius: 12px;
+  background: #fff;
+  padding: 8px;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.12);
+}
+
+.chip {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--rose-600);
+  background: var(--rose-50);
+  border: 1px solid var(--rose-200);
+  border-radius: 999px;
+  padding: 5px 8px;
+}
+
+.mock-popover input {
+  width: 120px;
+  border: 1px solid var(--slate-200);
+  border-radius: 8px;
+  padding: 8px;
+  font-size: 12px;
+  color: var(--slate-400);
+  background: var(--slate-50);
+}
+
+.mock-popover button {
+  border: none;
+  border-radius: 8px;
+  background: var(--rose-500);
+  color: #fff;
+  font-weight: 600;
+  font-size: 12px;
+  padding: 8px 12px;
+}
+
+.install-cta-wrap {
+  margin-top: 18px;
+  display: flex;
+  justify-content: center;
+}
+
+.install-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  background: var(--rose-600);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 12px;
+  padding: 14px 22px;
+  box-shadow: 0 12px 24px rgba(225, 29, 72, 0.26);
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.install-cta:hover {
+  background: var(--rose-700);
+  transform: translateY(-1px);
+}
+
+@media (max-width: 740px) {
+  .mock-page {
+    padding: 24px 16px 100px;
+  }
+
+  .mock-popover {
+    width: calc(100% - 24px);
+    justify-content: center;
+  }
+
+  .mock-popover input {
+    flex: 1;
+    min-width: 80px;
+  }
+
+  .install-cta {
+    width: 100%;
+    max-width: 340px;
+  }
+}

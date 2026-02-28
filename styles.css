@@ -181,6 +181,13 @@ body {
   align-items: center;
 }
 
+.primary-cta-row {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+}
+
 .install-cta {
   display: inline-flex;
   align-items: center;
@@ -198,6 +205,26 @@ body {
 
 .install-cta:hover {
   background: var(--rose-700);
+  transform: translateY(-1px);
+}
+
+.download-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  background: #ffffff;
+  color: var(--rose-700);
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 12px;
+  padding: 14px 22px;
+  border: 1px solid var(--rose-300);
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.download-cta:hover {
+  background: var(--rose-50);
   transform: translateY(-1px);
 }
 
@@ -232,6 +259,16 @@ body {
   }
 
   .install-cta {
+    width: 100%;
+    max-width: 340px;
+  }
+
+  .primary-cta-row {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .download-cta {
     width: 100%;
     max-width: 340px;
   }

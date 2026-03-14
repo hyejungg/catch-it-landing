@@ -31,6 +31,14 @@ body {
   background: radial-gradient(circle at top right, #ffe4e6 0%, #fff 40%, #f8fafc 100%);
 }
 
+.js .i18n-pending {
+  visibility: hidden;
+}
+
+.js.i18n-ready .i18n-pending {
+  visibility: visible;
+}
+
 .landing-body {
   min-height: 100vh;
 }
@@ -39,6 +47,40 @@ body {
   max-width: 1100px;
   margin: 0 auto;
   padding: 28px 16px 40px;
+}
+
+.topbar {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 14px;
+}
+
+.language-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px;
+  border: 1px solid var(--slate-200);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.85);
+  box-shadow: 0 8px 18px rgba(15, 23, 42, 0.06);
+}
+
+.language-option {
+  border: none;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--slate-500);
+  font-size: 13px;
+  font-weight: 700;
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.language-option.is-active {
+  background: var(--rose-600);
+  color: #fff;
 }
 
 .mock-shell {
@@ -244,6 +286,10 @@ body {
 }
 
 @media (max-width: 740px) {
+  .topbar {
+    justify-content: center;
+  }
+
   .mock-page {
     padding: 24px 16px 100px;
   }

@@ -3,11 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CatchIt | 웹 텍스트 수집기</title>
+    <title>CatchIt | Web Text Collector</title>
     <meta
       name="description"
-      content="드래그한 텍스트를 빠르게 저장하고, 필요하면 Notion DB로 동기화하는 CatchIt Chrome 확장 프로그램"
+      content="CatchIt Chrome extension to save highlighted text fast and sync it to your Notion database when needed"
     />
+    <script>
+      document.documentElement.classList.add("js");
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -17,9 +20,16 @@
     <link rel="icon" type="image/png" sizes="32x32" href="./icons/icon-32.png" />
     <link rel="stylesheet" href="styles.css" />
   </head>
-  <body class="landing-body">
+  <body class="landing-body i18n-pending">
     <main class="landing-main">
-      <section class="mock-shell" aria-label="가상 웹 페이지 미리보기">
+      <div class="topbar">
+        <div class="language-toggle" role="group" aria-label="Language selector">
+          <button type="button" class="language-option" data-locale-option="ko">KO</button>
+          <button type="button" class="language-option" data-locale-option="en">EN</button>
+        </div>
+      </div>
+
+      <section class="mock-shell" data-i18n-attr="aria-label:mockShellAria">
         <div class="mock-browser-header">
           <div class="dot dot-red"></div>
           <div class="dot dot-yellow"></div>
@@ -28,43 +38,44 @@
         </div>
 
         <div class="mock-page">
-          <h1>왜 우리는 항상 정보를 잃어버릴까?</h1>
-          <p class="meta">2023. 10. 25 | 작성자: 테크 매거진</p>
+          <h1 data-i18n="headline">Why do we always lose important information?</h1>
+          <p class="meta" data-i18n="meta">Oct 25, 2023 | By Tech Magazine</p>
 
           <div class="mock-content">
-            <p>
-              현대인들은 하루에도 수백 개의 아티클과 마주칩니다. 하지만
-              <span class="hl">정말 중요한 문장을 발견하더라도 그것을 내 지식으로 만드는 과정은 너무나도 험난합니다.</span>
-              북마크는 쌓여만 가고 다시 열어보지 않게 되죠.
+            <p data-i18n="paragraph1">
+              We run into hundreds of articles every day. But even when we find an important sentence,
+              <span class="hl">turning it into something we can actually reuse is still harder than it should be.</span>
+              Bookmarks pile up, and we rarely open them again.
             </p>
-            <p>
-              단순한 메모 앱에 복사해서 붙여넣기를 하더라도 문제는 발생합니다. 가장 큰 문제는
-              <strong>현재 페이지 컨텍스트(링크, 제목, 문맥)가 빠져 재사용성이 떨어진다</strong>는 점입니다.
+            <p data-i18n="paragraph2">
+              Even if you copy and paste into a simple notes app, the problem remains. The biggest issue is that
+              <strong>the page context disappears, so the note becomes much less reusable.</strong>
             </p>
-            <p>
-              우리에겐 더 나은 도구가 필요합니다.
-              <span class="rose-text">드래그 한 번으로 텍스트, URL, 제목, 저장 시간을 함께 수집하는 도구.</span>
-              바로 CatchIt입니다.
+            <p data-i18n="paragraph3">
+              We need a better tool.
+              <span class="rose-text">A tool that captures the text, URL, page title, and saved time in one drag.</span>
+              That's CatchIt.
             </p>
           </div>
 
-          <div class="mock-popover" role="note" aria-label="CatchIt 저장 팝오버 예시">
+          <div class="mock-popover" role="note" data-i18n-attr="aria-label:popoverAria">
             <span class="chip">CatchIt</span>
-            <input type="text" placeholder="태그 추가" disabled />
-            <button type="button" disabled>저장</button>
+            <input type="text" data-i18n-attr="placeholder:tagPlaceholder" disabled />
+            <button type="button" data-i18n="saveButton" disabled>Save</button>
           </div>
         </div>
       </section>
 
       <div class="install-cta-wrap">
         <div class="primary-cta-row">
-          <a class="download-cta" href="./privacy-policy.html">개인정보처리방침 보기</a>
+          <a class="download-cta" href="./privacy-policy.html" data-i18n="privacyCta">Privacy Policy</a>
           <a
             class="install-cta"
             href="https://chromewebstore.google.com/detail/catchit-%EC%9B%B9-%ED%85%8D%EC%8A%A4%ED%8A%B8-%EC%88%98%EC%A7%91%EA%B8%B0/dlnfoeckjfbkdcabniplfbfookmjbaop"
             target="_blank"
             rel="noopener noreferrer"
-            >Chrome 확장 프로그램 설치하기</a
+            data-i18n="installCta"
+            >Install on Chrome</a
           >
         </div>
         <a class="support-cta" href="https://buymeacoffee.com/hyejunggdet" target="_blank" rel="noopener noreferrer"
@@ -72,5 +83,114 @@
         >
       </div>
     </main>
+    <script>
+      const translations = {
+        ko: {
+          title: "CatchIt | 웹 텍스트 수집기",
+          description:
+            "드래그한 텍스트를 빠르게 저장하고, 필요하면 Notion DB로 동기화하는 CatchIt Chrome 확장 프로그램",
+          mockShellAria: "가상 웹 페이지 미리보기",
+          headline: "왜 우리는 항상 정보를 잃어버릴까?",
+          meta: "2023. 10. 25 | 작성자: 테크 매거진",
+          paragraph1:
+            '현대인들은 하루에도 수백 개의 아티클과 마주칩니다. 하지만 <span class="hl">정말 중요한 문장을 발견하더라도 그것을 내 지식으로 만드는 과정은 너무나도 험난합니다.</span> 북마크는 쌓여만 가고 다시 열어보지 않게 되죠.',
+          paragraph2:
+            "단순한 메모 앱에 복사해서 붙여넣기를 하더라도 문제는 발생합니다. 가장 큰 문제는 <strong>현재 페이지 컨텍스트(링크, 제목, 문맥)가 빠져 재사용성이 떨어진다</strong>는 점입니다.",
+          paragraph3:
+            '우리에겐 더 나은 도구가 필요합니다. <span class="rose-text">드래그 한 번으로 텍스트, URL, 제목, 저장 시간을 함께 수집하는 도구.</span> 바로 CatchIt입니다.',
+          popoverAria: "CatchIt 저장 팝오버 예시",
+          tagPlaceholder: "태그 추가",
+          saveButton: "저장",
+          privacyCta: "개인정보처리방침 보기",
+          installCta: "Chrome 확장 프로그램 설치하기",
+        },
+        en: {
+          title: "CatchIt | Web Text Collector",
+          description:
+            "CatchIt Chrome extension to save highlighted text fast and sync it to your Notion database when needed",
+          mockShellAria: "Mock webpage preview",
+          headline: "Why do we always lose important information?",
+          meta: "Oct 25, 2023 | By Tech Magazine",
+          paragraph1:
+            'We run into hundreds of articles every day. But even when we find an important sentence, <span class="hl">turning it into something we can actually reuse is still harder than it should be.</span> Bookmarks pile up, and we rarely open them again.',
+          paragraph2:
+            "Even if you copy and paste into a simple notes app, the problem remains. The biggest issue is that <strong>the page context disappears, so the note becomes much less reusable.</strong>",
+          paragraph3:
+            'We need a better tool. <span class="rose-text">A tool that captures the text, URL, page title, and saved time in one drag.</span> That&apos;s CatchIt.',
+          popoverAria: "CatchIt save popover example",
+          tagPlaceholder: "Add tag",
+          saveButton: "Save",
+          privacyCta: "Privacy Policy",
+          installCta: "Install on Chrome",
+        },
+      };
+
+      const storageKey = "catchit-locale";
+      const descriptionMeta = document.querySelector('meta[name="description"]');
+      const localeButtons = document.querySelectorAll("[data-locale-option]");
+
+      function detectLocale() {
+        const savedLocale = localStorage.getItem(storageKey);
+        if (savedLocale === "ko" || savedLocale === "en") {
+          return savedLocale;
+        }
+
+        return navigator.language.toLowerCase().startsWith("ko") ? "ko" : "en";
+      }
+
+      function applyTranslations(locale) {
+        const copy = translations[locale] ?? translations.en;
+
+        document.documentElement.lang = locale;
+        document.title = copy.title;
+        descriptionMeta?.setAttribute("content", copy.description);
+
+        document.querySelectorAll("[data-i18n]").forEach((element) => {
+          const key = element.dataset.i18n;
+          if (!key || !copy[key]) {
+            return;
+          }
+
+          element.innerHTML = copy[key];
+        });
+
+        document.querySelectorAll("[data-i18n-attr]").forEach((element) => {
+          const mappings = element.dataset.i18nAttr.split(",");
+
+          mappings.forEach((mapping) => {
+            const [attribute, key] = mapping.split(":");
+            if (!attribute || !key || !copy[key]) {
+              return;
+            }
+
+            element.setAttribute(attribute.trim(), copy[key]);
+          });
+        });
+
+        localeButtons.forEach((button) => {
+          const isActive = button.dataset.localeOption === locale;
+          button.classList.toggle("is-active", isActive);
+          button.setAttribute("aria-pressed", String(isActive));
+        });
+      }
+
+      const initialLocale = detectLocale();
+      applyTranslations(initialLocale);
+
+      localeButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          const nextLocale = button.dataset.localeOption;
+          if (!nextLocale) {
+            return;
+          }
+
+          localStorage.setItem(storageKey, nextLocale);
+          applyTranslations(nextLocale);
+        });
+      });
+
+      document.documentElement.classList.add("i18n-ready");
+      document.body.classList.remove("i18n-pending");
+    </script>
   </body>
 </html>
